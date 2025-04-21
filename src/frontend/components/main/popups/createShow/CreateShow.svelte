@@ -23,10 +23,13 @@
         values[key] = e.target.value || ""
 
         // store text if popup is closed
+        console.log(key)
         if (key === "text") quickTextCache.set(values.text)
+        if (key === "songNumber") fetchSongFromNumber(values.songNumber)
     }
     let values = {
         text: $quickTextCache.length > 20 ? $quickTextCache : "",
+        songNumber: "",
         name: "",
     }
 
@@ -60,7 +63,8 @@
 
     const createOptions = [
         { id: "text", name: "create_show.quick_lyrics", title: $dictionary.create_show?.quick_lyrics_tip, icon: "text" },
-        // { id: "clipboard", name: "clipboard", icon: "clipboard" },
+        // { id: "clipboard", name: "clipboard", icon: "clipboard" }
+        { id: "song_number", name: "create_show.song_number", title: $dictionary.create_show?.song_number, icon: "number" },
         { id: "web", name: "create_show.web", title: $dictionary.create_show?.search_web, icon: "search" },
         { id: "empty", name: "create_show.empty", title: $dictionary.new?.empty_show, icon: "add" },
     ]
@@ -78,6 +82,38 @@
                 if (exists) newToast("$create_show.exists")
             }
         }
+    }
+
+    async function fetchSongFromNumber(songNumber: string) {
+        const response = await fetch(`https://api.worshipbuddy.org/songs/${songNumber}`)
+        const songContent = await response.json()
+        console.log(songContent)
+        let lyrics = songContent["lyrics"]
+        const title = songContent["title"]
+        lyrics = processLyrics(lyrics)
+        values.text = lyrics
+    }
+
+    function processLyrics(data: string) {
+        // Step 1: Replace escaped newlines with actual newlines
+        data = data.replace(/\\n/g, "\n")
+
+        // Step 2: Clean up lines and remove lines that match the pattern `|number|`
+        data = data
+            .split("\n")
+            .filter((line) => !/\|\d+\|/.test(line)) // Remove lines with |number|
+            .map((line) => line.trim().replace(/\s+/g, " ")) // Collapse whitespace
+            .join("\n")
+
+        // Step 3: Replace `*number.* ` patterns using a custom function
+        data = data.replace(/\*(\d+)\.\*\s/g, (match, p1) => replaceVerse(p1))
+
+        return data
+    }
+
+    // Example stub for replaceVerse
+    function replaceVerse(number) {
+        return `Verse ${number}: `
     }
 
     // WEB SEARCH
@@ -120,7 +156,7 @@
             history({ id: "UPDATE", newData: { data: show, remember: { project: $activeProject } }, location: { page: "show", id: "show" } })
         }
 
-        values = { name: "", text: "" }
+        values = { name: "", text: "", songNumber: "" }
         quickTextCache.set("")
         activePopup.set(null)
     }
@@ -185,6 +221,11 @@
     <div class="header"><T id="create_show.quick_lyrics" /></div>
     <!-- WIP buttons for paste / format(remove chords, remove empty lines), etc. -->
     <TextArea placeholder={getQuickExample()} style="height: 250px;min-width: 500px;" value={values.text} autofocus={!values.text} on:input={(e) => changeValue(e)} />
+{:else if selectedOption === "song_number"}
+    <div>
+        <p>Enter song number</p>
+        <TextInput value={values.songNumber} on:input={(e) => changeValue(e, "songNumber")} />
+    </div>
 {:else if selectedOption === "web"}
     <WebSearch query={values.name} on:update={updateLyrics} />
 {/if}
