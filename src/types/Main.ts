@@ -254,6 +254,7 @@ export type Popups =
     | "songbeamer_import"
     | "export"
     | "show"
+    | "set"
     | "delete_show"
     | "select_show"
     | "select_template"

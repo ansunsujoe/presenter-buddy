@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte"
     import type { Tree } from "../../../types/Projects"
-    import { dictionary, folders, labelsDisabled, openedFolders, projects } from "../../stores"
+    import { activePopup, dictionary, folders, labelsDisabled, openedFolders, projects } from "../../stores"
     import { history } from "../helpers/history"
     import Icon from "../helpers/Icon.svelte"
     import T from "../helpers/T.svelte"

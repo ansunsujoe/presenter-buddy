@@ -76,6 +76,7 @@ export const contextMenuItems: { [key: string]: ContextMenuItem } = {
     private: { label: "actions.toggle_private", icon: "private" },
     duplicate: { label: "actions.duplicate", icon: "duplicate", shortcuts: ["Ctrl+D"] },
     section: { label: "new.section", icon: "section" },
+    set: { label: "new.set", icon: "list" },
     copy_to_template: { label: "actions.create_template", icon: "templates" },
     // SORT
     sort_shows_by: { label: "sort.sort_by", icon: "sort", items: ["LOAD_sort_shows"] },
@@ -231,7 +232,7 @@ export const contextMenuLayouts: { [key: string]: string[] } = {
     // PROJECT
     projects: ["newProject", "newFolder", "SEPERATOR", "sort_projects_by"],
     projectTab: ["export", "SEPERATOR", "close"],
-    project: ["newShowPopup", "section"], // "newShow"(empty) , "newPrivateShow"
+    project: ["newShowPopup", "section", "set"], // "newShow"(empty) , "newPrivateShow"
     project_button: ["rename", "duplicate", "delete", "SEPERATOR", "export", "copy_to_template", "SEPERATOR", "sort_projects_by"], // "open",
     project_template: ["rename", "delete"],
     folder: ["rename", "duplicate", "delete"],

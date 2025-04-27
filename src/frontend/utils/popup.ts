@@ -20,6 +20,7 @@ import Color from "../components/main/popups/Color.svelte"
 import Connect from "../components/main/popups/Connect.svelte"
 import CreatePlayer from "../components/main/popups/CreatePlayer.svelte"
 import CreateShow from "../components/main/popups/createShow/CreateShow.svelte"
+import AddSet from "../components/main/popups/createShow/AddSet.svelte"
 import DeleteDuplicatedShows from "../components/main/popups/DeleteDuplicatedShows.svelte"
 import DeleteShow from "../components/main/popups/DeleteShow.svelte"
 import EditEvent from "../components/main/popups/EditEvent.svelte"
@@ -65,6 +66,7 @@ export const popups: { [key in Popups]: ComponentType } = {
     songbeamer_import: SongbeamerImport,
     export: Export,
     show: CreateShow,
+    set: AddSet,
     delete_show: DeleteShow,
     select_show: SelectShow,
     select_template: SelectTemplate,

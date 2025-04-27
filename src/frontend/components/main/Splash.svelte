@@ -6,6 +6,8 @@
     import Button from "../inputs/Button.svelte"
     import Link from "../inputs/Link.svelte"
     import Center from "../system/Center.svelte"
+    import { ShowObj } from "../../classes/Show"
+    import { createCategory } from "../../converters/importHelpers"
 
     function createProject() {
         // if opened project is empty go to project list (to reduce confusion)
@@ -15,7 +17,6 @@
         }
 
         history({ id: "UPDATE", location: { page: "show", id: "project" } })
-
         showRecentlyUsedProjects.set(false)
     }
 </script>

@@ -24,6 +24,8 @@ export async function historyAwait(s: string[], obj: History) {
 
 export function history(obj: History, undo: null | boolean = null) {
     // let page: HistoryPages = obj.location?.page || "shows"
+    console.log("OBJ");
+    console.log(obj);
     if (!obj.location) obj.location = { page: get(activePage) as any }
     if (!obj.oldData) obj.oldData = null
     if (!obj.newData) obj.newData = null

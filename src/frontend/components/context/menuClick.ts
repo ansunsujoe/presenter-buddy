@@ -547,7 +547,7 @@ const actions = {
 
     // new
     newShowPopup: () => activePopup.set("show"),
-
+    set: () => activePopup.set("set"),
     newShow: () => history({ id: "UPDATE", newData: { remember: { project: get(activeProject) } }, location: { page: "show", id: "show" } }),
     newPrivateShow: () => history({ id: "UPDATE", newData: { replace: { private: true }, remember: { project: get(activeProject) } }, location: { page: "show", id: "show" } }),
     newProject: (obj: ObjData) => {

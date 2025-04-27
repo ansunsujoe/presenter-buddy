@@ -59,7 +59,7 @@
         "changes": "What's new"
     },
     "tooltip": {
-        "project": "Create a new project where you can add and arrange shows.",
+        "project": "Create a new service where you can add and arrange shows.",
         "show": "Create a new show where you can add song lyrics, presentations and media.",
         "groups": "All the groups in the current show and all the global groups. Click or drag them to add them to the current layout.",
         "layout": "Add transitions and next timers to slides in current layout.",
@@ -494,7 +494,7 @@
         "create": "Create new",
         "show": "New show",
         "empty_show": "New empty show",
-        "project": "New project",
+        "project": "New Service",
         "section": "New section",
         "timer": "New timer",
         "variable": "New variable",

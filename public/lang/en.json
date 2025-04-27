@@ -59,8 +59,9 @@
         "changes": "What's new"
     },
     "tooltip": {
-        "project": "Create a new project where you can add and arrange shows.",
+        "project": "Create a new service where you can add and arrange shows.",
         "show": "Create a new show where you can add song lyrics, presentations and media.",
+        "set": "Create a project from an existing WorshipBuddy set",
         "groups": "All the groups in the current show and all the global groups. Click or drag them to add them to the current layout.",
         "layout": "Add transitions and next timers to slides in current layout.",
         "media": "All media in current show. Show them, or drag them to current layout.",
@@ -401,7 +402,8 @@
         "outro": "Outro"
     },
     "popup": {
-        "show": "New show",
+        "show": "New Show",
+        "set": "Add WorshipBuddy Set",
         "select_show": "Select show",
         "select_template": "Select template",
         "rename": "Rename",
@@ -501,11 +503,12 @@
     },
     "new": {
         "create": "Create new",
-        "show": "New show",
+        "show": "New Show",
         "empty_show": "New empty show",
         "show_convert": "Convert to show",
-        "project": "New project",
-        "section": "New section",
+        "project": "New Service",
+        "section": "New Section",
+        "set": "Add Set",
         "timer": "New timer",
         "variable": "New variable",
         "trigger": "New trigger",
@@ -542,6 +545,11 @@
         "delete_match": "Delete if exact match",
         "delete_keep_last_modified": "Delete all except last modified",
         "delete_keep_first_created": "Delete all except first created"
+    },
+    "project": {
+        "set": "Existing Set",
+        "song_number": "Song Number",
+        "empty": "Empty Project"
     },
     "actions": {
         "rename": "Rename",
@@ -587,7 +595,7 @@
         "zoomOut": "Zoom Out",
         "reset": "Reset",
         "create_template": "Create template",
-        "project_template_tip": "Create a new project from this template",
+        "project_template_tip": "Create a new service from this template",
         "pdf_single_page": "Render as one document",
         "convert_to_images": "Convert to images",
         "converting": "Converting...",
@@ -1413,7 +1421,7 @@
     "guide_description": {
         "start": "This is a short walkthrough of some basic features! (You can skip in the bottom right corner.)",
         "project_manage": "Manage all of your projects in one place.",
-        "project_create": "Create folders to keep it organized, and create new projects.",
+        "project_create": "Create folders to keep it organized, and create new services.",
         "project_list": "After opening a project you get a list of all the items here on the left side, drag & drop from the drawer to add more.",
         "drawer": "Find all of your shows, media, overlays, etc. in one place.",
         "drawer_search": "Search for content in the active drawer tab (songs, etc.). Use the shortcut CTRL/CMD+F for quicker access.",
